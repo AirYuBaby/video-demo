@@ -1,0 +1,8 @@
+com\Eriyuer\fun_video\mapper\UsersLikeVideosMapper.class
+com\Eriyuer\fun_video\mapper\VideosMapper.class
+com\Eriyuer\fun_video\mapper\BgmMapper.class
+com\Eriyuer\fun_video\mapper\UsersMapper.class
+com\Eriyuer\fun_video\mapper\UsersReportMapper.class
+com\Eriyuer\fun_video\mapper\CommentsMapper.class
+com\Eriyuer\fun_video\mapper\SearchRecordMapper.class
+com\Eriyuer\fun_video\mapper\UsersFansMapper.class

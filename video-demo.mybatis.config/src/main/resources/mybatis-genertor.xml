@@ -1,0 +1,58 @@
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--suppress MybatisGenerateCustomPluginInspection -->
+<generatorConfiguration>
+
+	<properties resource="jdbc.properties" />
+
+	<context id="Mysql" targetRuntime="MyBatis3Simple"
+		defaultModelType="flat">
+		<property name="javaFileEncoding" value="UTF-8" />
+		<property name="useMapperCommentGenerator" value="false" />
+
+		<!-- 通过逆向工程实现的所有pojo类都会实现序列化接口 -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+			<property name="mappers"
+				value="com.Eriyuer.fun_video.util.MyMapper" />
+			<property name="caseSensitive" value="true" />
+			<property name="forceAnnotation" value="true" />
+			<property name="beginningDelimiter" value="`" />
+			<property name="endingDelimiter" value="`" />
+		</plugin>
+
+		<commentGenerator>
+			<!-- 去除所有自动生成的注释 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="${jdbc.driver}"
+			connectionURL="${jdbc.url}" userId="${jdbc.username}"
+			password="${jdbc.password}">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<!-- 会把jdbc decimal和numeric 解析成integer -->
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!--MyBatis 生成器只需要生成 Model -->
+		<!-- 通过逆向工程生成的Java对象放在那 -->
+		<javaModelGenerator
+			targetPackage="com.Eriyuer.fun_video.pojo"
+			targetProject="./src/test/java" />
+
+		<!-- 通过逆向工程生成的mapper映射文件放在哪 -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="./src/test/resources" />
+
+		<!-- 通过逆向工程生成的mapper接口放在哪 -->
+		<javaClientGenerator
+			targetPackage="com.Eriyuer.fun_video.mapper"
+			targetProject="./src/test/java" type="XMLMAPPER" />
+
+		<table tableName="%"></table>
+	</context>
+</generatorConfiguration>
